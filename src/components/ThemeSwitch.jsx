@@ -188,8 +188,13 @@ const Shade = ({ checked = false }) => (
  */
 const ThemeSwitch = ({ checked = false, ...restProps }) => {
   return (
-    <div
+    <button
       className={`${styles.root} ${checked && styles.toggled}`}
+      role="switch"
+      aria-checked={checked ? "true" : "false"}
+      title="theme switch"
+      type="button"
+      aria-label={checked ? "dark mode" : "light mode"}
       {...restProps}
     >
       <Shade checked={checked} />
@@ -205,7 +210,7 @@ const ThemeSwitch = ({ checked = false, ...restProps }) => {
       <Cloud checked={checked} style={{ top: "4px", right: "-3px" }} />
       <Stars checked={checked} />
       <SwitchCircle checked={checked} />
-    </div>
+    </button>
   );
 };
 
